@@ -4,7 +4,7 @@ import json
 import os
 
 # Paths to the database and output file
-DB_PATH = (
+B_PATH = (
     Path(os.getenv("INPUT_PATH", "/mnt/input")) / "query_results.db"
 )  # Default path to the SQLite database
 OUTPUT_PATH = (
@@ -23,39 +23,6 @@ def create_db_connection():
         raise e
 
 
-def get_users_data(cursor):
-    """Retrieves all data from users table."""
-    try:
-        cursor.execute("SELECT * FROM users")
-        users = [dict(row) for row in cursor.fetchall()]
-        return users
-    except Exception as e:
-        print(f"Error querying users table: {e}")
-        raise e
-
-
-def get_storage_metrics_data(cursor):
-    """Retrieves all data from storage_metrics table."""
-    try:
-        cursor.execute("SELECT * FROM storage_metrics")
-        storage_metrics = [dict(row) for row in cursor.fetchall()]
-        return storage_metrics
-    except Exception as e:
-        print(f"Error querying storage_metrics table: {e}")
-        raise e
-
-
-def get_auth_sources_data(cursor):
-    """Retrieves all data from auth_sources table."""
-    try:
-        cursor.execute("SELECT * FROM auth_sources")
-        auth_sources = [dict(row) for row in cursor.fetchall()]
-        return auth_sources
-    except Exception as e:
-        print(f"Error querying auth_sources table: {e}")
-        raise e
-
-
 def get_all_data():
     """Retrieves all data from all tables using specialized functions."""
     try:
@@ -63,19 +30,14 @@ def get_all_data():
         conn = create_db_connection()
         cursor = conn.cursor()
 
-        # Get data from each table using the specialized functions
-        users = get_users_data(cursor)
-        storage_metrics = get_storage_metrics_data(cursor)
-        auth_sources = get_auth_sources_data(cursor)
-
+        cursor.execute("SELECT * FROM results")
+        results = [dict(row) for row in cursor.fetchall()]
         # Close the connection after all queries are done
         conn.close()
 
         # Create a nested structure with all data
         all_data = {
-            "users": users,
-            "storage_metrics": storage_metrics,
-            "auth_sources": auth_sources,
+            "results": results,
         }
 
         return all_data
