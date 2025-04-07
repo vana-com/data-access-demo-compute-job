@@ -1,11 +1,44 @@
 {
-    "users": [
+    "results": [
         {
-            "user_id": "115564247452430573817",
-            "email": "527bd5b5d689e2c32ae974c6229ff785@opendatalabs.xyz",
-            "name": "John Doe",
-            "locale": "en",
-            "created_at": "2025-03-20 19:55:45.802000"
+            "user_id": "u001",
+            "locale": "en_US"
+        },
+        {
+            "user_id": "u002",
+            "locale": "en_GB"
+        },
+        {
+            "user_id": "u003",
+            "locale": "fr_FR"
+        },
+        {
+            "user_id": "u004",
+            "locale": "de_DE"
+        },
+        {
+            "user_id": "u005",
+            "locale": "es_ES"
+        },
+        {
+            "user_id": "u006",
+            "locale": "it_IT"
+        },
+        {
+            "user_id": "u007",
+            "locale": "pt_BR"
+        },
+        {
+            "user_id": "u008",
+            "locale": "nl_NL"
+        },
+        {
+            "user_id": "u009",
+            "locale": "ru_RU"
+        },
+        {
+            "user_id": "u010",
+            "locale": "ja_JP"
         }
     ]
 }
