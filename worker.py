@@ -4,8 +4,12 @@ import json
 import os
 
 # Paths to the database and output file
-DB_PATH = Path("input") / "query_results.db"  # Default path to the SQLite database
-OUTPUT_PATH = Path("output") / "stats.json"  # Default output JSON path
+DB_PATH = (
+    Path(os.getenv("INPUT_PATH", "/mnt/input")) / "query_results.db"
+)  # Default path to the SQLite database
+OUTPUT_PATH = (
+    Path(os.getenv("OUTPUT_PATH", "/mnt/output")) / "stats.json"
+)  # Default output JSON path
 
 
 def create_db_connection():
