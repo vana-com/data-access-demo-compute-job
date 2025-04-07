@@ -4,7 +4,7 @@ import json
 import os
 
 # Paths to the database and output file
-B_PATH = (
+DB_PATH = (
     Path(os.getenv("INPUT_PATH", "/mnt/input")) / "query_results.db"
 )  # Default path to the SQLite database
 OUTPUT_PATH = (
