@@ -35,12 +35,7 @@ def get_all_data():
         # Close the connection after all queries are done
         conn.close()
 
-        # Create a nested structure with all data
-        all_data = {
-            "results": results,
-        }
-
-        return all_data
+        return results
     except Exception as e:
         print(f"Error compiling all data: {e}")
         raise e
