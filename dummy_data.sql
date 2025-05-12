@@ -39,6 +39,15 @@ INSERT INTO auth_sources VALUES(1,'115564247452430573817','Google','2025-03-20 2
 -- (The SELECT query is what would be submitted to the Compute Engine with the job.)
 CREATE TABLE results AS
 SELECT
-    user_id,
-    locale
-FROM users; 
+  u.user_id AS userId,
+  u.email,
+  CAST(strftime('%s', u.created_at) AS INTEGER) AS timestamp,
+  u.name,
+  u.locale,
+  sm.percent_used AS percentUsed,
+  a.source,
+  a.collection_date AS collectionDate,
+  a.data_type AS dataType
+FROM users u
+LEFT JOIN auth_sources a ON u.user_id = a.user_id
+LEFT JOIN storage_metrics sm ON u.user_id = sm.user_id

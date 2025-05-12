@@ -1,3 +1,13 @@
-{
-    "115564247452430573817": "en"
-}
+[
+    {
+        "userId": "115564247452430573817",
+        "email": "527bd5b5d689e2c32ae974c6229ff785@opendatalabs.xyz",
+        "timestamp": 1742500545,
+        "name": "John Doe",
+        "locale": "en",
+        "percentUsed": 12.67,
+        "source": "Google",
+        "collectionDate": "2025-03-20 23:55:45.802000",
+        "dataType": "profile"
+    }
+]
