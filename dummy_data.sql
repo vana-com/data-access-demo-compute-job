@@ -34,3 +34,11 @@ INSERT INTO users VALUES('115564247452430573817','527bd5b5d689e2c32ae974c6229ff7
 INSERT INTO storage_metrics VALUES(1,'115564247452430573817',12.66999999999999993,'2025-03-20 19:55:45.802000');
 
 INSERT INTO auth_sources VALUES(1,'115564247452430573817','Google','2025-03-20 23:55:45.802000','profile');
+
+-- Create the `results` table to simulate Query Engine query processing results.
+-- (The SELECT query is what would be submitted to the Compute Engine with the job.)
+CREATE TABLE results AS
+SELECT
+    user_id,
+    locale
+FROM users; 
